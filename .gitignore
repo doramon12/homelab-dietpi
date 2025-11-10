@@ -1,0 +1,56 @@
+# Environment files with secrets
+.env
+*.env
+glance/.env
+
+# Keep example files
+!.env.example
+!**/.env.example
+# ignore local database files and sqlite databases
+*.db
+*.sqlite
+*.sqlite3
+data/*.db
+**/data/*.db
+ # ignore local logs
+*.log
+logs/
+**/logs/
+*.log.*
+nohup.out
+
+# ignore SSL certificates and private keys
+*.pem
+*.key
+*.crt
+*.cert
+*.pfx
+*.p12
+fullchain.pem
+privkey.pem
+chain.pem
+cert.pem
+acme.json
+
+# common letsencrypt / ACME folders
+letsencrypt/
+**/letsencrypt/
+letsencrypt-acme-challenge/
+
+# nginx-proxy-manager data (certs, custom ssl, keys)
+nginx-proxy-manager/data/custom_ssl/
+nginx-proxy-manager/data/letsencrypt/
+nginx-proxy-manager/data/letsencrypt-acme-challenge/
+nginx-proxy-manager/data/keys.json
+nginx-proxy-manager/data/*.pem
+nginx-proxy-manager/data/*.key
+
+# Pi-hole sensitive configs and hosts
+pihole/etc-pihole/
+pihole/etc-dnsmasq.d/
+pihole/hosts/
+
+# Generic secrets/config dumps
+*.env.local
+*.secret
+secrets/

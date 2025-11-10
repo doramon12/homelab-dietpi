@@ -1,0 +1,34 @@
+- name: Feeds
+  columns:
+    - size: small
+      widgets:
+        $include: ../widgets/news.yml
+    - size: full
+      widgets:
+        - type: search
+          search-engine: google
+        - type: group
+          widgets:
+            - type: reddit
+              subreddit: privacy
+              show-thumbnails: true
+              collapse-after: 20
+            - type: reddit
+              subreddit: argentina
+              show-thumbnails: true
+              collapse-after: 20
+            - type: reddit
+              subreddit: homelab
+              show-thumbnails: true
+              collapse-after: 20
+            - type: reddit
+              subreddit: homeassistant
+              show-thumbnails: true
+              collapse-after: 20
+            - type: reddit
+              subreddit: 3DPrinting
+              show-thumbnails: true
+              collapse-after: 20
+    - size: small
+      widgets:
+        $include: ../widgets/markets.yml

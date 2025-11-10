@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+    speedtest-tracker:
+        container_name: speedtest-tracker
+        image: lscr.io/linuxserver/speedtest-tracker:latest
+        ports:
+            - 8094:80
+            - 8095:443
+        env_file:
+            - ../.env
+        environment:
+            APP_KEY: '${SPEEDTEST_APP_KEY}'
+            DB_CONNECTION: '${SPEEDTEST_DB_CONNECTION}'
+            SPEEDTEST_SCHEDULE: '${SPEEDTEST_SCHEDULE}'
+            SPEEDTEST_SERVERS: '${SPEEDTEST_SERVERS}'
+            PRUNE_RESULTS_OLDER_THAN: '${SPEEDTEST_PRUNE_RESULTS_OLDER_THAN}'
+            DISPLAY_TIMEZONE: '${TZ}'
+            APP_URL: '${SPEEDTEST_APP_URL}'
+        volumes:
+            - ./speedtest-tracker/config:/config
+            - ./speedtest-tracker/web:/etc/ssl/web
+        restart: unless-stopped
+        networks:
+            - raspberry-net
+
+networks:
+    raspberry-net:
+        external: true

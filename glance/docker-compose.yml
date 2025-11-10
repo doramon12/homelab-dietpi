@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+    glance:
+        image: glanceapp/glance:latest
+        container_name: glance
+        restart: unless-stopped
+
+        ports:
+            - '8081:8080'
+
+        env_file:
+            - ../.env
+
+        volumes:
+            # Main configuration file
+            - ./glance.yml:/app/config/glance.yml:ro
+            # Tabs directory
+            - ./tabs:/app/config/tabs:ro
+            # Widgets directory
+            - ./widgets:/app/config/widgets:ro
+            # Timezone and localtime
+            - /etc/timezone:/etc/timezone:ro
+            - /etc/localtime:/etc/localtime:ro
+
+        networks:
+            - raspberry-net
+
+networks:
+    raspberry-net:
+        external: true

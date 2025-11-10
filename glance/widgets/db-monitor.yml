@@ -1,0 +1,12 @@
+- type: monitor
+  cache: 1m
+  title: Databases
+  sites:
+    - title: Prometheus
+      url: http://192.168.88.250:9090
+      check-url: http://prometheus:9090
+      icon: si:prometheus
+    - title: InfluxDB
+      url: http://192.168.88.250:8086
+      check-url: http://influxdb2:8086
+      icon: si:influxdb

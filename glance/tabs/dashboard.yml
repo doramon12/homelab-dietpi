@@ -1,0 +1,23 @@
+- name: Dashboard
+  width: wide
+  center-vertically: true
+  columns:
+    - size: small
+      widgets:
+        $include: ../widgets/calendar.yml
+        - type: weather
+          location: Buenos Aires, Argentina
+          hide-location: false
+          units: metric
+        $include: ../widgets/pi-monitor.yml
+
+    - size: full
+      widgets:
+        $include: ../widgets/services-monitor.yml
+        $include: ../widgets/db-monitor.yml
+
+    - size: small
+      widgets:
+        $include: ../widgets/internet-speed.yml
+        $include: ../widgets/pihole.yml
+        $include: ../widgets/bookmarks.yml

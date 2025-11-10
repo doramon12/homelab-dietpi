@@ -1,0 +1,77 @@
+- type: custom-api
+  title: PI System Resources
+  url: http://prometheus:9090/api/v1/query?query=up
+  cache: 5s
+  subrequests:
+    cpu:
+      url: http://prometheus:9090/api/v1/query?query=round(100-(avg(rate(node_cpu_seconds_total{mode="idle"}[1m]))*100),0.1)
+    memory:
+      url: http://prometheus:9090/api/v1/query?query=round((node_memory_MemTotal_bytes-node_memory_MemAvailable_bytes)/node_memory_MemTotal_bytes*100,0.1)
+    memory_used:
+      url: http://prometheus:9090/api/v1/query?query=round((node_memory_MemTotal_bytes-node_memory_MemAvailable_bytes)/1024/1024/1024,0.1)
+    memory_total:
+      url: http://prometheus:9090/api/v1/query?query=round(node_memory_MemTotal_bytes/1024/1024/1024,1)
+    disk:
+      url: http://prometheus:9090/api/v1/query?query=round((node_filesystem_size_bytes{mountpoint="/"}-node_filesystem_avail_bytes{mountpoint="/"})/node_filesystem_size_bytes{mountpoint="/"}*100,0.1)
+    disk_used:
+      url: http://prometheus:9090/api/v1/query?query=round((node_filesystem_size_bytes{mountpoint="/"}-node_filesystem_avail_bytes{mountpoint="/"})/1024/1024/1024,1)
+    disk_total:
+      url: http://prometheus:9090/api/v1/query?query=round(node_filesystem_size_bytes{mountpoint="/"}/1024/1024/1024,1)
+  template: |
+    {{ $cpu := .Subrequest "cpu" }}
+    {{ $memory := .Subrequest "memory" }}
+    {{ $memory_used := .Subrequest "memory_used" }}
+    {{ $memory_total := .Subrequest "memory_total" }}
+    {{ $disk := .Subrequest "disk" }}
+    {{ $disk_used := .Subrequest "disk_used" }}
+    {{ $disk_total := .Subrequest "disk_total" }}
+
+    {{ if not ($cpu.JSON.Exists "data.result") }}
+    <p class="color-negative">Error reading metrics</p>
+    {{ else }}
+
+    <div class="list-gap-14" style="padding: 12px;">
+      {{ if $cpu.JSON.Exists "data.result.0.value.1" }}
+      {{ $cpuVal := $cpu.JSON.String "data.result.0.value.1" }}
+      <div style="margin-bottom: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <span style="font-weight: 500;">CPU</span>
+          <span style="color: var(--color-highlight); font-weight: 600;">{{ $cpuVal }}%</span>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); border-radius: 4px; height: 8px; overflow: hidden;">
+          <div style="background: linear-gradient(90deg, #f59e0b, #ef4444); height: 100%; width: {{ $cpuVal }}%; transition: width 0.3s ease;"></div>
+        </div>
+      </div>
+      {{ end }}
+
+      {{ if $memory.JSON.Exists "data.result.0.value.1" }}
+      {{ $memPercent := $memory.JSON.String "data.result.0.value.1" }}
+      {{ $memUsed := $memory_used.JSON.String "data.result.0.value.1" }}
+      {{ $memTotal := $memory_total.JSON.String "data.result.0.value.1" }}
+      <div style="margin-bottom: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <span style="font-weight: 500;">RAM ({{ $memUsed }}/{{ $memTotal }} GB)</span>
+          <span style="color: var(--color-highlight); font-weight: 600;">{{ $memPercent }}%</span>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); border-radius: 4px; height: 8px; overflow: hidden;">
+          <div style="background: linear-gradient(90deg, #f59e0b, #ef4444); height: 100%; width: {{ $memPercent }}%; transition: width 0.3s ease;"></div>
+        </div>
+      </div>
+      {{ end }}
+
+      {{ if $disk.JSON.Exists "data.result.0.value.1" }}
+      {{ $diskPercent := $disk.JSON.String "data.result.0.value.1" }}
+      {{ $diskUsed := $disk_used.JSON.String "data.result.0.value.1" }}
+      {{ $diskTotal := $disk_total.JSON.String "data.result.0.value.1" }}
+      <div style="margin-bottom: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <span style="font-weight: 500;">STORAGE ({{ $diskUsed }}/{{ $diskTotal }} GB)</span>
+          <span style="color: var(--color-highlight); font-weight: 600;">{{ $diskPercent }}%</span>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); border-radius: 4px; height: 8px; overflow: hidden;">
+          <div style="background: linear-gradient(90deg, #f59e0b, #ef4444); height: 100%; width: {{ $diskPercent }}%; transition: width 0.3s ease;"></div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}

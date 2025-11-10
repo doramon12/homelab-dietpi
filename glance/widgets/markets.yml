@@ -1,0 +1,40 @@
+- type: markets
+  title: Index
+  markets:
+    - symbol: SPY
+      name: S&P 500
+    - symbol: DX-Y.NYB
+      name: Dollar Index
+
+- type: markets
+  title: Crypto
+  markets:
+    - symbol: BTC-USD
+      name: Bitcoin
+    - symbol: ETH-USD
+      name: Ethereum
+
+- type: markets
+  title: Stocks
+  sort-by: absolute-change
+  markets:
+    - symbol: NVDA
+      name: NVIDIA
+    - symbol: AAPL
+      name: Apple
+    - symbol: MSFT
+      name: Microsoft
+    - symbol: GOOGL
+      name: Google
+    - symbol: AMD
+      name: AMD
+    - symbol: RDDT
+      name: Reddit
+    - symbol: AMZN
+      name: Amazon
+    - symbol: TSLA
+      name: Tesla
+    - symbol: INTC
+      name: Intel
+    - symbol: META
+      name: Meta

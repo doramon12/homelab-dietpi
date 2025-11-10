@@ -1,0 +1,33 @@
+- type: monitor
+  cache: 1m
+  title: Services
+  sites:
+      - title: PiHole
+        url: http://192.168.88.250:8053/admin
+        check-url: http://pihole:80/admin
+        icon: si:pihole
+      - title: Portainer
+        url: http://192.168.88.250:9000
+        check-url: http://portainer:9000
+        icon: si:docker
+        allow-insecure: true
+      - title: Nginx Proxy Manager
+        url: http://192.168.88.250:81
+        check-url: http://nginx-proxy-manager:81
+        icon: si:nginx
+      - title: Grafana
+        url: http://192.168.88.250:3000
+        check-url: http://grafana:3000
+        icon: si:grafana
+      - title: Stirling PDF
+        url: http://192.168.88.250:8082
+        check-url: http://stirling-pdf:8080
+        icon: si:adobeacrobatreader
+      - title: FileBrowser
+        url: http://192.168.88.250:8083
+        check-url: http://filebrowser:80
+        icon: si:files
+      - title: Speedtest Tracker
+        url: http://192.168.88.250:8094
+        check-url: http://speedtest-tracker:80
+        icon: si:speedtest

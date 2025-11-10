@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+  stirling-pdf:
+    image: docker.stirlingpdf.com/stirlingtools/stirling-pdf:latest
+    container_name: stirling-pdf
+    ports:
+      - '8082:8080'
+    volumes:
+      - ./training-data:/usr/share/tessdata
+      - ./extra-configs:/configs
+      - ./custom-files:/customFiles/
+      - ./logs:/logs/
+      - ./pipeline:/pipeline/
+    env_file:
+      - ../.env
+    environment:
+      - DISABLE_ADDITIONAL_FEATURES=${STIRLING_PDF_DISABLE_ADDITIONAL_FEATURES}
+      - LANGS=${STIRLING_PDF_LANGS}
+    restart: unless-stopped
+    networks:
+      - raspberry-net
+
+networks:
+  raspberry-net:
+    external: true
